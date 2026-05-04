@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network traffic Monitoring</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+    
+        <div class="nav-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" class="logo">
+            <span class="title">Network Traffic Monitor</span>
+        </div>
+
+        <div class="nav-center">
+            <span class="status-dot"></span>
+            Live Monitoring
+        </div>
+
+        <div class="nav-right">
+            <i class="fa fa-network-wired"></i>
+            <i class="fa fa-shield-alt"></i>
+            <i class="fa fa-chart-line"></i>
+        </div>
+
+    </nav>
+
+    <div class="controls">
+        <div class="controls-heading">CONTROLS</div>
+        <button class="start-btn controls-btn" onclick="startMonitoring()">
+            <i class="fas fa-play"></i> Start Monitoring
+        </button>
+        <button class="stop-btn controls-btn" onclick="stopMonitoring()">
+            <i class="fas fa-stop"></i> Stop Monitoring
+        </button>
+        <button class="clear-btn controls-btn" onclick="clearData()">
+            <i class="fa-solid fa-trash"></i> Clear Data
+        </button>
+    </div>
+
+    <div id="statsBox">
+        <div class="statsBoxinnerDivs">
+            <div style="color: lightseagreen;" class="total-packets big-number">0</div>
+            <div>TOTAL PACKETS</div>
+        </div>
+
+        <div class="statsBoxinnerDivs">
+            <div style="color: greenyellow;" class="tcp-packets big-number">0</div>
+            <div>TCP PACKETS</div>
+        </div>
+
+        <div class="statsBoxinnerDivs">
+            <div style="color: orange" class="udp-packets big-number">0</div>
+            <div>UDP PACKETS</div>
+        </div>
+
+        <div class="statsBoxinnerDivs">
+            <div style="color: magenta;" class="icmp-packets big-number">0</div>
+            <div>ICMP PACKETS</div>
+        </div>
+
+        <div class="statsBoxinnerDivs">
+            <div style="color: yellow;" class="avg-size big-number">0</div>
+            <div>AVERAGE SIZE</div>
+        </div>
+
+        <div class="statsBoxinnerDivs">
+            <div style="color: rgb(71, 71, 184);" class="total-bytes big-number">0</div>
+            <div>TOTAL BYTES</div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="traffic-filter">
+        <div style="color: gray; margin: 12px; font-size: 0.9em;"><i class="fa fa-filter"></i> FILTER TRAFFIC</div>
+        <select id="protocols">
+            <option value="">All Protocols</option>
+            <option value="tcp">TCP</option>
+            <option value="udp">UDP</option>
+            <option value="icmp">ICMP</option>
+        </select>
+        
+        <input type="text" id="src_ip" placeholder="Enter Source IP">
+        <input type="text" id="dest_ip" placeholder="Enter Destination IP">
+    
+        <button class="apply-btn controls-btn" onclick="applyFilter()">Apply Filter</button>
+        <button class="reset-btn controls-btn" onclick="resetFilter()">Reset Filter</button>
+    </div>
+
+    <br><br>
+
+    <div class="packet-capture">
+
+        <table class="table-container">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Source IP</th>
+                    <th>Destination IP</th>
+                    <th>Protocol</th>
+                    <th>Packet Size</th>
+                    <th>Source Port</th>
+                    <th>Destination Port</th>
+                    <th>Service</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="tbody-wrapper">
+            <table class="table-container">
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+
+            <div class="no-data" id="no-data">
+                <i style="color: rgb(108, 108, 161);" class="fas fa-satellite-dish"></i>
+                <p>No packets captured yet</p>
+                <span>Start monitoring to capture live traffic</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Network Traffic Monitor</h3>
+                <p>Real-time packet analysis and monitoring system</p>
+            </div>
+
+            <div class="footer-center">
+                <p>© 2026 All Rights Reserved</p>
+                <p>Developed by Waleed Imran</p>
+            </div>
+
+            <div class="footer-right">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

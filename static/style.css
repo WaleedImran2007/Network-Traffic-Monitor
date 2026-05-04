@@ -1,0 +1,360 @@
+body {
+    background-color: #0b0e14; /* Deep Navy Night */
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    align-items: center;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background-color: #1a1d24;
+    padding: 12px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+}
+
+.title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.nav-center {
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.3; }
+}
+
+.nav-right i {
+    color: #9ca3af;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-right i:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+
+/* CONTROLS */
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background-color: #1a1d24;
+    padding: 10px;
+    border-radius: 10px;
+    width: 94%;
+    margin: 20px auto;
+}
+
+.controls-heading {
+    font-size: small;
+    font-weight: 600;
+    color: gray;
+}
+
+.main-heading {
+    text-align: center;
+    max-width: 100%;
+}
+
+
+.controls-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #38bdf8;
+    color: black;
+    font-weight: bold;
+    font-size: 0.85em;
+    margin-right: 8px;
+}
+
+.controls-btn:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.start-btn {
+    background-color:#28a745;
+    color: white;
+}
+
+.start-btn:hover {
+    background-color: #34ce57;
+}
+
+.stop-btn {
+    background-color: red;
+    color: white;
+}
+
+.stop-btn:hover {
+    background-color: #c82333;
+}
+
+.clear-btn {
+    background-color: #343A40;
+    color: white;
+}
+
+.clear-btn:hover {
+    background-color: #23272B;
+}
+
+#statsBox {
+    display: flex;
+    gap: 10px;
+    width: 96%;
+    margin: 10px auto;
+}
+
+#statsBox div {
+    background-color: #1a1d24;
+    border-radius: 10px;
+}
+
+.statsBoxinnerDivs {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    font-size: 0.9em;
+    gap: 10px;
+    color: gray;
+}
+
+.big-number {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+input, select {
+    padding: 10px 12px;
+    margin: 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    outline: none;
+    background-color: black;
+    color: #f8fafc;
+    transition: all 0.25s ease;
+}
+
+select {
+    cursor: pointer;
+}
+
+/* Hover effect */
+input:hover, select:hover {
+    border-color: #38bdf8;
+    background-color: #263449;
+}
+
+/* Focus effect (VERY IMPORTANT for UX) */
+input:focus, select:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    background-color: #263449;
+}
+
+
+.traffic-filter {
+    background-color: #1a1d24;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 95%;
+}
+
+.apply-btn {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+}
+
+
+.apply-btn:hover {
+    background-color: #2563eb;
+}
+
+.reset-btn {
+    background-color: #2f3440;
+    color: whitesmoke;
+}
+
+.reset-btn:hover {
+    background-color: #3b4150;
+}
+
+
+.packet-capture {
+    margin: 10px auto;
+    width: 98%;
+}
+
+.table-container {
+    width: 100%;
+    background-color: rgba(169, 169, 169, 0.105);
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.tbody-wrapper {
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+}
+
+/* column widths — wider for IP columns */
+th:nth-child(1), td:nth-child(1) { width: 9%; }   /* Time */
+th:nth-child(2), td:nth-child(2) { width: 14%; }  /* Source IP */
+th:nth-child(3), td:nth-child(3) { width: 14%; }  /* Destination IP */
+th:nth-child(4), td:nth-child(4) { width: 9%; }   /* Protocol */
+th:nth-child(5), td:nth-child(5) { width: 10%; }  /* Packet Size */
+th:nth-child(6), td:nth-child(6) { width: 11%; }  /* Source Port */
+th:nth-child(7), td:nth-child(7) { width: 14%; }  /* Destination Port */
+th:nth-child(8), td:nth-child(8) { width: 11%; }  /* Service */
+
+th {
+    background-color: #1a1d24;
+    color: white;
+    padding: 12px;
+    /* vertical dividers on header only */
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+th:last-child {
+    border-right: none;
+}
+
+#tableBody {
+    background-color: #242831;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    /* vertical dividers on body */
+    border-right: 1px solid rgba(255,255,255,0.06);
+    border-bottom: none;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+tr:hover {
+    background-color: #334155;
+    transition: all 0.3s ease;
+}
+
+/* .tbody-wrapper::-webkit-scrollbar { width: 4px; }
+.tbody-wrapper::-webkit-scrollbar-track { background: transparent; }
+.tbody-wrapper::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 10px; } */
+
+.tbody-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.no-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: gray;
+    padding: 20px;
+}
+
+
+/* FOOTER */
+
+.footer {
+    background-color: #1a1d24;
+    padding: 12px 20px;
+    border-top: 1px solid #1e293b;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-left h3 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.footer-left p {
+    font-size: 0.9em;
+    color: #94a3b8;
+}
+
+.footer-center {
+    text-align: center;
+    font-size: 0.9em;
+    color: #94a3b8;
+}
+
+.footer-right a {
+    color: #94a3b8;
+    margin-left: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.footer-right a:hover {
+    color: #38bdf8;
+}
